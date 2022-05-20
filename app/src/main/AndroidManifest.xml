@@ -2,7 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.niteshdevloper.caloriesestimation">
-    <uses-permission android:name="android.permission.CAMERA"> </uses-permission>
+
+    <uses-permission android:name="android.permission.CAMERA"></uses-permission>
+
+    <uses-feature android:name="android.hardware.camera" />
 
     <application
         android:allowBackup="true"
@@ -14,6 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CaloriesEstimation"
         tools:targetApi="31">
+        <activity
+            android:name=".Predict"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

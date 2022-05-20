@@ -7,23 +7,46 @@
     tools:context=".MainActivity">
 
     <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="419dp"
+        android:layout_height="733dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/background"
+        tools:layout_editor_absoluteX="-6dp" />
+
+    <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="0dp"
-        android:layout_height="481dp"
-        android:layout_marginStart="29dp"
-        android:layout_marginEnd="29dp"
-        app:layout_constraintBottom_toTopOf="@+id/Capture"
+        android:layout_width="337dp"
+        android:layout_height="394dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="111dp"
+        android:layout_marginEnd="28dp"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/image" />
 
     <Button
         android:id="@+id/Capture"
-        android:layout_width="114dp"
-        android:layout_height="63dp"
-        android:layout_marginTop="612dp"
+        android:layout_width="118dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="120dp"
         android:text="Capture"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/detect"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+    <Button
+        android:id="@+id/detect"
+        android:layout_width="126dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="52dp"
+        android:text="Detect"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 </androidx.constraintlayout.widget.ConstraintLayout>

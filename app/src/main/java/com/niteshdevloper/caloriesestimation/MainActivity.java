@@ -19,7 +19,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    private Button Capture_button;
+    private Button Capture_button, Detect_button;
     private static final int CAMERA_REQUEST = 1888;
     private ImageView imageView;
     private static final int MY_CAMERA_PERMISSION_CODE = 100;
@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Capture_button = (Button) findViewById(R.id.Capture);
+        Detect_button = (Button) findViewById(R.id.detect);
         this.imageView = (ImageView) findViewById(R.id.imageView3);
         Capture_button.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.M)
@@ -43,6 +44,15 @@ public class MainActivity extends AppCompatActivity {
                     Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
                     startActivityForResult(cameraIntent, CAMERA_REQUEST);
                 }
+            }
+        });
+        Detect_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent anotheractivity = new Intent(MainActivity.this, Predict.class);
+                startActivity(anotheractivity);
+
+
             }
         });
     }
@@ -67,9 +77,12 @@ public class MainActivity extends AppCompatActivity {
 
 
         super.onActivityResult(requestcode, resultcode, data);
-        if(requestcode == CAMERA_REQUEST &&  requestcode == Activity.RESULT_OK){
+        if(requestcode == CAMERA_REQUEST &&  resultcode == Activity.RESULT_OK){
             Bitmap photo  = (Bitmap) data.getExtras().get("data");
             imageView.setImageBitmap(photo);
+        }
+        else{
+            Toast.makeText(this, "Nothing to show", Toast.LENGTH_LONG).show();
         }
     }
 
